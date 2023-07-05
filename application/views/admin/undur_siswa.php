@@ -12,9 +12,9 @@
                      <h5 class="m-0 font-weight-bold text-primary"><?= $title; ?></h5>
                  </div>
                  <div class="card-body">
-
-                     <a href="<?= base_url('admin/cetak_undur_pdf'); ?>" class="btn btn-danger  px-2"><i class="far fa-file-pdf"></i>PDF</a>
-
+                 <a href="<?= base_url('admin/cetak_undur'); ?>" class="btn btn-primary  px-3"><i class="fas fa-print"></i>Cetak</a>
+                 <a href="<?= base_url('admin/cetak_undur_pdf'); ?>" class="btn btn-danger  px-2"><i class="far fa-file-pdf"></i>PDF</a>
+                 <a href="<?= base_url('admin/cetak_undur_excel'); ?>" class="btn btn-success  px-2"><i class="far fa-file-excel"></i>Excel</a>
                      <div class="table-responsive">
                          <table class="table table-bordered text-justify" id="dataTable" width="100%" cellspacing="0">
                              <thead>
