@@ -11,6 +11,14 @@ class Auth extends CI_Controller
 
     public function index()
     {
+        if ($this->session->userdata('email')) {
+            if ($this->session->userdata('role_id') == 1) {
+                redirect('admin');
+            } else {
+                redirect('user');
+            }
+        }
+
 
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
@@ -73,6 +81,13 @@ class Auth extends CI_Controller
 
     public function daftar()
     {
+        if ($this->session->userdata('email')) {
+            if ($this->session->userdata('role_id') == 1) {
+                redirect('admin');
+            } else {
+                redirect('user');
+            }
+        }
 
 
         $this->form_validation->set_rules('nama', 'Name', 'required|trim');
@@ -119,5 +134,11 @@ class Auth extends CI_Controller
         Anda telah logout!
       </div>');
         redirect('auth');
+    }
+
+    public function blocked()
+    {
+
+        $this->load->view('auth/blocked');
     }
 }

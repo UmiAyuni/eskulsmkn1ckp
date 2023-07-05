@@ -7,6 +7,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Eskul extends CI_Controller
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+        cek_login();
+    }
 
     //Controller untuk melihat data eskul (data ini khusus ditampilkan di halaman admin aja)
     public function index()
@@ -187,5 +192,4 @@ class Eskul extends CI_Controller
         );
         $this->load->view('cetak/cetak_eskul_excel', $data);
     }
-
 }

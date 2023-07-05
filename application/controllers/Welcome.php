@@ -6,6 +6,14 @@ class Welcome extends CI_Controller
 
 	public function index()
 	{
+		if ($this->session->userdata('email')) {
+			if ($this->session->userdata('role_id') == 1) {
+				redirect('admin');
+			} else {
+				redirect('user');
+			}
+		}
+
 
 		$this->load->view('pengunjung/header');
 		$this->load->view('pengunjung/navbar');
@@ -14,6 +22,14 @@ class Welcome extends CI_Controller
 
 	public function home()
 	{
+		if ($this->session->userdata('email')) {
+			if ($this->session->userdata('role_id') == 1) {
+				redirect('admin');
+			} else {
+				redirect('user');
+			}
+		}
+
 
 		$this->load->view('pengunjung/header');
 		$this->load->view('pengunjung/navbarx');
@@ -23,6 +39,14 @@ class Welcome extends CI_Controller
 
 	public function eskul()
 	{
+
+		if ($this->session->userdata('email')) {
+			if ($this->session->userdata('role_id') == 1) {
+				redirect('admin');
+			} else {
+				redirect('user');
+			}
+		}
 
 		//ambil data keyword (disini kalo user masukin nama eskul yg dia cari bakal ditampilin data eskul itu aja)
 		if ($this->input->post('submit')) {
@@ -43,6 +67,14 @@ class Welcome extends CI_Controller
 
 	public function eskul_detail($id)
 	{
+
+		if ($this->session->userdata('email')) {
+			if ($this->session->userdata('role_id') == 1) {
+				redirect('admin');
+			} else {
+				redirect('user');
+			}
+		}
 
 		$data['data_eskul'] = $this->Pengunjung_model->geteskul_by_id($id);
 

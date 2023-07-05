@@ -7,6 +7,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Admin extends CI_Controller
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+        cek_login();
+    }
 
     //Controller untuk dashboard admin(halaman pertama kali ditampilkan saat admin log in)
     public function index()
@@ -544,9 +549,9 @@ class Admin extends CI_Controller
         }
     }
 
-  
 
- public function cetak_komplan()
+
+    public function cetak_komplan()
     {
         $data['komplan'] = $this->db->get('komplan')->result_array();
 
@@ -554,7 +559,7 @@ class Admin extends CI_Controller
     }
 
 
- public function cetak_komplan_excel()
+    public function cetak_komplan_excel()
     {
         $data = array(
             'title' => 'Laporan Komplain Siswa',
@@ -564,8 +569,8 @@ class Admin extends CI_Controller
         $this->load->view('cetak/cetak_komplan_excel', $data);
     }
 
-    
-  public function cetak_pendaftar()
+
+    public function cetak_pendaftar()
     {
         $data['pendaftar'] = $this->db->get('formulir_daftar')->result_array();
 
@@ -573,7 +578,7 @@ class Admin extends CI_Controller
     }
 
 
- public function cetak_pendaftar_excel()
+    public function cetak_pendaftar_excel()
     {
         $data = array(
             'title' => 'Laporan Pendaftar Ekstrakurikuler',
@@ -583,8 +588,8 @@ class Admin extends CI_Controller
         $this->load->view('cetak/cetak_pendaftar_excel', $data);
     }
 
-    
-public function cetak_undur()
+
+    public function cetak_undur()
     {
         $data['undur'] = $this->db->get('undur')->result_array();
 
@@ -593,7 +598,7 @@ public function cetak_undur()
 
 
 
-public function cetak_undur_excel()
+    public function cetak_undur_excel()
     {
         $data = array(
             'title' => 'Laporan Undur Diri Siswa',
