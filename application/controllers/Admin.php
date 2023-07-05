@@ -563,4 +563,24 @@ class Admin extends CI_Controller
 
         $this->load->view('cetak/cetak_komplan_excel', $data);
     }
+
+    
+  public function cetak_pendaftar()
+    {
+        $data['pendaftar'] = $this->db->get('formulir_daftar')->result_array();
+
+        $this->load->view('cetak/cetakpendaftar', $data);
+    }
+
+
+
+ public function cetak_pendaftar_excel()
+    {
+        $data = array(
+            'title' => 'Laporan Pendaftar Ekstrakurikuler',
+            'pendaftar' => $this->db->get('formulir_daftar')->result_array()
+        );
+
+        $this->load->view('cetak/cetak_pendaftar_excel', $data);
+    }
 }
