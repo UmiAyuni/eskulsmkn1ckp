@@ -13,9 +13,9 @@
                 </div>
                 <div class="card-body">
                     <a href="<?= base_url('Eskul/tambah'); ?>" class="btn btn-primary mb-3 px-3"><i class="fas fa-fw fa-plus-circle"></i>Tambah Ekstrakurikuler</a><br>
-
+                    <a href="<?= base_url('Eskul/cetak_eskul'); ?>" class="btn btn-primary  px-2"><i class="fas fa-print"></i>Cetak</a>
                     <a href="<?= base_url('Eskul/cetak_eskul_pdf'); ?>" class="btn btn-danger  px-2"><i class="far fa-file-pdf"></i>PDF</a>
-
+                    <a href="<?= base_url('Eskul/cetak_eskul_excel'); ?>" class="btn btn-success  px-2"><i class="far fa-file-excel"></i>Excel</a>
                     <div class="table-responsive">
                         <table class="table table-bordered text-justify" id="dataTable" width="100%" cellspacing="0">
                             <thead>

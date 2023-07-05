@@ -169,4 +169,23 @@ class Eskul extends CI_Controller
         $dompdf->stream('laporan_data_eskul_pdf', array('Attachment' => 0)); //nama file pdf yg dihasilkan
 
     }
+
+    public function cetak_eskul()
+    {
+        $this->load->model('Eskul_model');
+        $data['data_eskul'] = $this->Eskul_model->getEskul();
+
+        $this->load->view('cetak/cetakeskul', $data);
+    }
+
+
+    public function cetak_eskul_excel()
+    {
+        $data = array(
+            'title' => 'Laporan Ekstrakurikuler',
+            'data_eskul' => $this->Eskul_model->getEskul()
+        );
+        $this->load->view('cetak/cetak_eskul_excel', $data);
+    }
+
 }
