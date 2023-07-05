@@ -543,4 +543,24 @@ class Admin extends CI_Controller
             redirect('admin/profile');
         }
     }
+
+  
+
+ public function cetak_komplan()
+    {
+        $data['komplan'] = $this->db->get('komplan')->result_array();
+
+        $this->load->view('cetak/cetakkomplan', $data);
+    }
+
+
+ public function cetak_komplan_excel()
+    {
+        $data = array(
+            'title' => 'Laporan Komplain Siswa',
+            'komplan' => $this->db->get('komplan')->result_array()
+        );
+
+        $this->load->view('cetak/cetak_komplan_excel', $data);
+    }
 }
