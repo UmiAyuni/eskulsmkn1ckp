@@ -573,7 +573,6 @@ class Admin extends CI_Controller
     }
 
 
-
  public function cetak_pendaftar_excel()
     {
         $data = array(
@@ -582,5 +581,25 @@ class Admin extends CI_Controller
         );
 
         $this->load->view('cetak/cetak_pendaftar_excel', $data);
+    }
+
+    
+public function cetak_undur()
+    {
+        $data['undur'] = $this->db->get('undur')->result_array();
+
+        $this->load->view('cetak/cetakundur', $data);
+    }
+
+
+
+public function cetak_undur_excel()
+    {
+        $data = array(
+            'title' => 'Laporan Undur Diri Siswa',
+            'undur' => $this->db->get('undur')->result_array()
+        );
+
+        $this->load->view('cetak/cetak_undur_excel', $data);
     }
 }
